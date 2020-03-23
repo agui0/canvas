@@ -2,8 +2,8 @@
   // 背景类
   let Background=function () {
     this.x=0;
-    this.w=275;
-    this.h=500;
+    this.w=288;
+    this.h=512;
     this.step=1;
   }
   window.Background=Background;

@@ -15,8 +15,6 @@
     this.allImg={
       bg_day: 'img/bg_day.png',
       land: 'img/land.png',
-      pipe_down: 'img/pipe_down.png',
-      pipe_up: 'img/pipe_up.png',
     }
     // 加载所有图片
     let n=0; // 计数器
@@ -43,25 +41,14 @@
     // 开始游戏
     this.bg=new Background();
     this.land=new Land();
-    this.bg.update();
-    this.bg.render();
-    this.pipeArr=[];//放管子的
-    this.f=0;
     setInterval(() => {
-      this.f++;
-      this.clear();// 先清屏
+      // 先清屏
+      this.clear();
       // 先更新在渲染
       this.bg.update();
       this.bg.render();
       this.land.update();
       this.land.render();
-      // 将pipeArr中存放的每一组管子更新渲染
-      this.pipeArr.forEach((item)=>{
-        item.update();
-        item.render();
-      })
-      //每200帧new1个管子
-      this.f%100===0&&new Pipe();
-    }, 20)
+    }, 50)
   }
 })();
