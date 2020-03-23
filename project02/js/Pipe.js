@@ -10,7 +10,7 @@
     game.pipeArr.push(this);
   };
   Pipe.prototype.update=function () {
-    this.x-=2;
+    this.x-=1;
     if(this.x<=-52) {
       for (let i = 0; i < game.pipeArr.length; i++) {
         if(game.pipeArr[i]==this){

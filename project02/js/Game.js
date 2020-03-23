@@ -17,6 +17,9 @@
       land: 'img/land.png',
       pipe_down: 'img/pipe_down.png',
       pipe_up: 'img/pipe_up.png',
+      bird0_0: 'img/bird0_0.png',
+      bird0_1: 'img/bird0_1.png',
+      bird0_2: 'img/bird0_2.png',
     }
     // 加载所有图片
     let n=0; // 计数器
@@ -34,6 +37,7 @@
         }
       })(this.allImg[key]);
     }
+    this.bindEvent();
   };
   window.Game=Game;
   Game.prototype.clear=function () {
@@ -41,27 +45,36 @@
   }
   Game.prototype.start=function () {
     // 开始游戏
-    this.bg=new Background();
-    this.land=new Land();
-    this.bg.update();
-    this.bg.render();
+    // this.bg=new Background();
+    // this.land=new Land();
+    this.bird=new Bird();
+    // this.bg.update();
+    // this.bg.render();
     this.pipeArr=[];//放管子的
     this.f=0;
     setInterval(() => {
       this.f++;
-      this.clear();// 先清屏
+      // this.clear();// 先清屏
       // 先更新在渲染
-      this.bg.update();
-      this.bg.render();
-      this.land.update();
-      this.land.render();
+      // this.bg.update();
+      // this.bg.render();
+      // this.land.update();
+      // this.land.render();
       // 将pipeArr中存放的每一组管子更新渲染
       this.pipeArr.forEach((item)=>{
         item.update();
         item.render();
       })
       //每200帧new1个管子
-      this.f%100===0&&new Pipe();
+      // this.f%200===0&&new Pipe();
+      this.bird.update();
+      this.bird.render();
     }, 20)
+  }
+  Game.prototype.bindEvent=function() {
+    // 给this.canvas绑定事件
+    this.canvas.onclick=() => {
+      this.bird.fly();
+    }
   }
 })();
