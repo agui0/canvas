@@ -23,12 +23,32 @@
       ((src) => {
         this.allImg[key]=new Image();
         this.allImg[key].src=src;
+        this.allImg[key].onload=() => {
+          n++;
+          if(n==total){
+            // 图片加载完成，可以进入游戏
+            this.start()
+          }
+        }
       })(this.allImg[key]);
     }
-    console.log(this.allImg);
   };
   window.Game=Game;
+  Game.prototype.clear=function () {
+    this.draw.clearRect(0,0,this.canvas.width,this.canvas.height);
+  }
   Game.prototype.start=function () {
-    
+    // 开始游戏
+    this.bg=new Background();
+    this.land=new Land();
+    setInterval(() => {
+      // 先清屏
+      this.clear();
+      // 先更新在渲染
+      this.bg.update();
+      this.bg.render();
+      this.land.update();
+      this.land.render();
+    }, 50)
   }
 })();
