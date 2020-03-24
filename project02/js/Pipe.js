@@ -20,6 +20,10 @@
         
       }
     }
+    // 加分检测
+    // if(game.bird.x1>this.x2) {
+    //   game.score++;
+    // }
   }
   Pipe.prototype.render=function () {
     game.draw.drawImage(game.allImg['pipe_down'],0,320-this.h1,52,this.h1,this.x,0,52,this.h1);
