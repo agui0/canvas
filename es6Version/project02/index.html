@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  html body{
+    margin: 0;
+    padding: 0;
+  }
+  canvas{
+    display: block;
+  }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <!-- 音乐 -->
+  <audio src="music/sfx_die.ogg" id="die"></audio>
+  <audio src="music/sfx_hit.ogg" id="hit"></audio>
+  <audio src="music/sfx_point.ogg" id="point"></audio>
+  <audio src="music/sfx_wing.ogg" id="wing"></audio>
+  <script src="js/Background.js"></script>
+  <script src="js/Land.js"></script>
+  <script src="js/Pipe.js"></script>
+  <script src="js/Bird.js"></script>
+  <script src="js/SceneManage.js"></script>
+  <script src="js/Game.js"></script>
+  <script>
+    var game= new Game();
+  </script>
+</body>
+</html>

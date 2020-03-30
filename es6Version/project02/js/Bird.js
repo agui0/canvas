@@ -45,9 +45,6 @@
     // 头上扬
     this.rotate=-1.2;
     this.changeY=10;
-    //音乐
-    document.getElementById("wing").load();
-    document.getElementById("wing").play();
   };
   window.Bird=Bird;
 })();

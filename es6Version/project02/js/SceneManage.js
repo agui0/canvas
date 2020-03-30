@@ -72,7 +72,7 @@
         game.bg.render();
         game.land.update();
         game.land.render();
-        game.bird.update();
+        // game.bird.update();
         game.bird.render();
         game.f%200==0?new Pipe():null;
         game.pipeArr.forEach((item) => {
@@ -103,8 +103,6 @@
         case 1:
           this.enter(2);  
           break;
-        case 2:
-          game.bird.fly();
         default:
           break;
       }
